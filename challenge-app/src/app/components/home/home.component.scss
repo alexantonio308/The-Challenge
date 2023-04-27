@@ -1,0 +1,14 @@
+.home {
+  width: 100%;
+  height: 100%;
+
+  .page-content {
+    position: fixed;
+    height: calc(100% - 72px);
+    width: 100%;
+    padding: 1rem;
+    background: #C3C7B9;
+    transition: 300ms;
+    overflow: auto;
+  }
+}
