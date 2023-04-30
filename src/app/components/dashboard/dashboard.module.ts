@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { PaymentListComponent } from './payment-list/payment-list.component';
 import { PaymentEditComponent } from './payment-edit/payment-edit.component';
 import { NgbDropdownModule, NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgbDropdownModule, NgbPaginationModule, NgbTypeaheadModule } from '@ng-
     NgbTypeaheadModule,
     NgbTypeaheadModule,
     ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers: [  ]
 })

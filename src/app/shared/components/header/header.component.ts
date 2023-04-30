@@ -6,15 +6,12 @@ import { PaymentURL } from '@app/shared/url/url.domain';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   username: string = '';
 
-  constructor(
-    private loginService: LoginService
-  ) { }
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.getUsername();
@@ -22,7 +19,9 @@ export class HeaderComponent implements OnInit {
 
   getUsername(): void {
     const token: any = this.loginService.getDecodeToken();
-    this.username = token[LoginFormConst.USERNAME];
+    if (token) {
+      this.username = token[LoginFormConst.USERNAME];
+    }
   }
 
   logoutSystem(): void {

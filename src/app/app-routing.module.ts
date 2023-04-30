@@ -9,6 +9,7 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
     children :[
       {
         path: '',

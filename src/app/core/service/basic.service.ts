@@ -18,9 +18,9 @@ export class BasicService {
     return this.http.get(url, {params, headers});
   }
 
-  findById(url: string, id: any, params: HttpParams | any = null): Observable<any> {
+  findById(url: string, id: any): Observable<any> {
     const headers: HttpHeaders = this.loginService.getHeaders();
-    return this.http.get(`${url}/${id}`, {headers, params} );
+    return this.http.get(`${url}/${id}`, {headers} );
   }
 
   insert(url: string, item: any = {}): Observable<any> {

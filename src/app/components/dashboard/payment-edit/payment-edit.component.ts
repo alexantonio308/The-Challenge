@@ -39,7 +39,6 @@ export class PaymentEditComponent implements OnInit {
     this.formGroup = this.getForm();
     this.disableForm();
     this.updateForm(this.item);
-    console.log(this.item);
   }
 
   public getForm(): any {
@@ -120,7 +119,6 @@ export class PaymentEditComponent implements OnInit {
     formGroup[PaymentFormConst.DATE] = this.setDateBrazilianFormat(
       this.getSpecificForm(PaymentFormConst.DATE)?.value
     );
-    console.log(formGroup);
     return formGroup;
   }
 
@@ -132,7 +130,6 @@ export class PaymentEditComponent implements OnInit {
   }
 
   public setDateBrazilianFormat(date: string): any {
-
     const items: string[] = date.split('-');
     let newDate: Date = new Date();
     newDate.setFullYear(
