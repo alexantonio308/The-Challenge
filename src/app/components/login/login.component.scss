@@ -135,12 +135,22 @@ strong {
     position: absolute;
     right: 10%;
   }
-  .text-home {
-    right: 50%;
+  .text-home, .text-home-2 {
+    right: 60%;
     position: absolute;
-    margin: 45px;
+    margin: 20px;
+    // border: 1px solid #00232e;
+    // border-radius: 0.75rem;
+    padding: 22px;
     p,h2{
       color: #f5f5f5;
     }
+  }
+  .text-home-2{
+    text-align: center;
+    border: 1px solid #00232e;
+    border-radius: 0.75rem;
+    right: 35%;
+    width: 20%;
   }
 }
