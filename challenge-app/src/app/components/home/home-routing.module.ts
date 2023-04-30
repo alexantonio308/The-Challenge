@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardURL } from '@app/shared/url/url.domain';
+import { AuthURL, DashboardURL } from '@app/shared/url/url.domain';
 
 const routes: Routes = [
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
           import('../dashboard/dashboard.module').then(
             (m) => m.DashboardModule
           ),
-      },
+      }
     ],
   },
 ];

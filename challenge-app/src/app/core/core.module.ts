@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 
 import {AuthService} from "./service/auth.service";
 import { AuthGuard } from './security/auth.guard.';
@@ -12,6 +12,6 @@ import { FormBuilder } from '@angular/forms';
   imports: [
     CommonModule,
   ],
-  providers: [AuthGuard, AuthService, LoginService, FormBuilder]
+  providers: [AuthGuard, AuthService, LoginService, FormBuilder, DatePipe]
 })
 export class CoreModule { }

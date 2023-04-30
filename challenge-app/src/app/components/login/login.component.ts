@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BaseComponent } from '@app/core/interface/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginService } from '../../core/service/login.service';
 import { UserModel } from './user.model';
-
+import { LoginFormConst } from './login-form.const';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent extends BaseComponent implements OnInit {
+export class LoginComponent implements OnInit {
   public user: UserModel;
   public loginForm: FormGroup;
-  public loading: boolean = false;
+  public showToggle = false;
+  LoginFormConst = LoginFormConst;
 
   constructor(
     private readonly loginService: LoginService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {
-    super();
     this.loginForm = this.getForm();
   }
 
   ngOnInit() {
-    this.checkCampos();
+
   }
 
   getForm() {
@@ -40,15 +42,14 @@ export class LoginComponent extends BaseComponent implements OnInit {
     });
   }
 
+  togglePassword() {
+    this.showToggle = !this.showToggle;
+  }
+
   login() {
     if (this.loginForm.invalid) return;
     this.spinner.show();
-    this.loading = true;
-
-    var Username = this.loginForm.controls['username'].value;
-    var Password = this.loginForm.controls['password'].value;
-
-    this.loginService.login(Username, Password).subscribe({
+    this.loginService.login(this.loginForm?.value).subscribe({
       next: (result: any) => this.whenIsOk(result),
       error: (error: any) => this.whenThereIsError(error),
     });
@@ -62,33 +63,17 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   whenThereIsError(error: any): void {
     console.log(error);
+    this.spinner.hide();
+
   }
 
   goToHome(): void {
     setTimeout(() => this.router.navigate(['']), 1000);
   }
 
-  private checkCampos(): void {
-    this.loginForm.get('username')?.valueChanges.subscribe((value: any) => {
-      console.log(value);
-    });
-    this.loginForm.get('password')?.valueChanges.subscribe((value: any) => {
-      console.log(value);
-    });
-  }
+}
 
-  validaSenha(opcao: string) {
-    if (this.loginForm.controls['password'].hasError('required')) return true;
-    return this.loginForm.controls['password'].hasError(opcao);
-  }
-
-  // aplicaCssErro(campo){
-  //   return{
-  //     'has-error': this.validaCampo(campo),
-  //     'has-feedback': this.validaCampo(campo),
-  //   }
-  // }
-  // ChecaSessao(): Observable<any>{
-
-  // }
+export interface ILogin {
+  username?: any;
+  senha?: string;
 }

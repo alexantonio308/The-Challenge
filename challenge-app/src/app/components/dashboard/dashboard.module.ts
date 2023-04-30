@@ -1,21 +1,28 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { PaymentListComponent } from './payment-list/payment-list.component';
-
+import { PaymentEditComponent } from './payment-edit/payment-edit.component';
+import { NgbDropdownModule, NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    PaymentListComponent
+    PaymentListComponent,
+    PaymentEditComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbPaginationModule,
+    NgbDropdownModule,
+    NgbTypeaheadModule,
+    NgbTypeaheadModule,
+    ReactiveFormsModule,
   ],
+  providers: [  ]
 })
 export class DashboardModule { }

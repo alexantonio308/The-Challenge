@@ -1,18 +1,16 @@
-
 import {Injectable} from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import {BaseService} from "../interface/base.service";
 import {LocalStorageConst} from "../utils/local-storage.const";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService extends BaseService {
+export class AuthService  {
 
   protected jwtHelper: JwtHelperService = new JwtHelperService();
 
   constructor() {
-    super();
+
   }
 
   getDecodeToken(): any {

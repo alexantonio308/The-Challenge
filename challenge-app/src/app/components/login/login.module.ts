@@ -18,8 +18,7 @@ import { LoginComponent } from './login.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgxSpinnerModule,
-    SharedModule
-
+    SharedModule,
   ],
   bootstrap: [LoginComponent]
 })

@@ -1,0 +1,26 @@
+<div class="core-modal">
+  <div class="modal-header">
+    <h4 class="modal-title">{{ title }}</h4>
+  </div>
+  <ng-container [ngTemplateOutlet]="modalBodyTemplate"> </ng-container>
+  <ng-container [ngTemplateOutlet]="modalFooterTemplate"></ng-container>
+</div>
+
+<ng-template #modalBodyTemplate>
+  <div class="modal-body">
+    <div class="modal-action">
+      <div class="core-base-edit">
+        <div class="core-body">
+          <p>{{ body }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #modalFooterTemplate>
+  <div class="modal-footer">
+    <button type="button" class="btn close-modal" (click)="activeModal.close(false)">Cancel</button>
+    <button type="button" class="btn confirm-modal" (click)="activeModal.close(true)">Confirm</button>
+  </div>
+</ng-template>

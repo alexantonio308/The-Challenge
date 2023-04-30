@@ -3,7 +3,13 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+/* Importing NGX-Toastr SCSS file. */
+@import 'node_modules/ngx-toastr/toastr';
+
 /** private style **/
-@import "./app/core/scss/variables.scss";
-@import "./app/core/scss/base-list.scss";
-@import "./app/core/scss/base-dropdow.scss";
+@import "app/core/scss/variables.scss";
+@import "app/core/scss/base-list.scss";
+@import "app/core/scss/base-edit.scss";
+@import "app/core/scss/base-dropdow.scss";
+@import "app/core/scss/base-loader.scss";
+@import "app/core/scss/base-modal.scss";

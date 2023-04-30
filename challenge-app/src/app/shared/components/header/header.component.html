@@ -4,7 +4,7 @@
 
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <h1 class="nav-link"><strong>Dashboard</strong></h1>
+        <h1 class="nav-link"  routerLinkActive="active" [routerLink]="getPaymentUrl()"><strong>Dashboard</strong></h1>
       </li>
     </ul>
     <ng-container [ngTemplateOutlet]="userActionTemplate"></ng-container>
@@ -47,13 +47,15 @@
       ngbDropdownToggle
     >
       <div class="d-flex justify-content-between">
-        <i class="fa-solid fa-user"></i>
-        <span>{{ username }}</span>
+        <span> Hi, {{ username.toUpperCase() }}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+        <span> <i class="fa-solid">{{ username[0] }}</i> </span>
       </div>
     </button>
 
     <div ngbDropdownMenu aria-labelledby="userDropdown">
-      <button ngbDropdownItem (click)="logoutSystem()">Logout</button>
+      <button ngbDropdownItem id="logoutButton" (click)="logoutSystem()">Logout</button>
     </div>
   </div>
 </ng-template>

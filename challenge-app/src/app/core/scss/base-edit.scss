@@ -1,0 +1,42 @@
+@import 'variables.scss';
+
+.base-edit {
+
+  h1 {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .base-edit-body {
+    width: 100%;
+    min-height: 25%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: white;
+  }
+
+  .action {
+
+    .btn {
+      border-radius: 0.3rem;
+
+      font-size: 14px;
+      line-height: 17px;
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 2rem;
+    }
+
+    .btn-cancel {
+      background: $color-danger;
+      border-color: $color-danger;
+      margin-right: 1rem;
+    }
+
+    .btn-confirm {
+      background: $color-third;
+      border-color: $color-third;
+    }
+  }
+}

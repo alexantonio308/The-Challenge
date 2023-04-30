@@ -4,6 +4,7 @@ export namespace LoginURL {
 
 export namespace AuthURL {
   export const BASE = 'auth';
+  export const UPDATE = 'profile';
 }
 
 export namespace DashboardURL {
