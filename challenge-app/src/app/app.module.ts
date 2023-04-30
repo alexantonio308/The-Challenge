@@ -12,7 +12,6 @@ import { setAppInjector } from './app.injector';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {ToastrModule} from "ngx-toastr";
-import { OrderModule } from 'ngx-order-pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +26,6 @@ import { OrderModule } from 'ngx-order-pipe';
     NgxSpinnerModule,
     NgbModule,
     FontAwesomeModule,
-    OrderModule,
     ToastrModule.forRoot({
       timeOut: 3500,
       positionClass: 'toast-bottom-right',

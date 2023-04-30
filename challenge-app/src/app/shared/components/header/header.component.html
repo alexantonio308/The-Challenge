@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg">
     <ng-template [ngTemplateOutlet]="picpayLogo"></ng-template>
 
-    <ul class="nav justify-content-center">
+    <ul *ngIf="username" class="nav justify-content-center">
       <li class="nav-item">
         <h1
           class="nav-link"
@@ -13,7 +13,7 @@
         </h1>
       </li>
     </ul>
-    <ng-container [ngTemplateOutlet]="userActionTemplate"></ng-container>
+    <ng-container *ngIf="username" [ngTemplateOutlet]="userActionTemplate"></ng-container>
   </nav>
 </header>
 

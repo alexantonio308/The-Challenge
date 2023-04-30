@@ -6,6 +6,7 @@ import { SharedModule } from '@app/shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { HeaderModule } from '@app/shared/components/header/header.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { LoginComponent } from './login.component';
     HttpClientModule,
     NgxSpinnerModule,
     SharedModule,
+    HeaderModule
   ],
   bootstrap: [LoginComponent]
 })

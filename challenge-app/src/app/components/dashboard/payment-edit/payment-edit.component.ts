@@ -62,7 +62,7 @@ export class PaymentEditComponent implements OnInit {
   public updateForm(item: any): void {
     if (this.item?._id) {
       this.formGroup.get(PaymentFormConst.ID).setValue(this.item[PaymentFormConst.ID]);
-      this.formGroup.get(PaymentFormConst.DATE).setValue(this.item[PaymentFormConst.DATE]);
+      this.formGroup.get(PaymentFormConst.DATE).setValue(this.getDateBrazilianFormat(this.item[PaymentFormConst.DATE]));
       this.formGroup.get(PaymentFormConst.FIRST_NAME).setValue(this.item[PaymentFormConst.FIRST_NAME]);
       this.formGroup.get(PaymentFormConst.LAST_NAME).setValue(this.item[PaymentFormConst.LAST_NAME]);
       this.formGroup.get(PaymentFormConst.IS_PAYED).setValue(this.item[PaymentFormConst.IS_PAYED]);
@@ -74,7 +74,7 @@ export class PaymentEditComponent implements OnInit {
       const token: any = this.getUsernameFromLoggedUser();
       this.getSpecificForm(PaymentFormConst.ID).setValue(token[PaymentFormConst.ID]);
       this.getSpecificForm(PaymentFormConst.USERNAME).setValue(token[PaymentFormConst.USERNAME]);
-      this.getSpecificForm(PaymentFormConst.DATE).setValue(this.setDateBrazilianFormat(new Date().toISOString()));
+      this.getSpecificForm(PaymentFormConst.DATE).setValue(this.getDateBrazilianFormat(new Date().toISOString()));
     }
   }
 
@@ -124,10 +124,15 @@ export class PaymentEditComponent implements OnInit {
     return formGroup;
   }
 
-  public setDateBrazilianFormat(date: string): any {
+  public getDateBrazilianFormat(date: string): any {
     let currentDate = new Date(date);
     currentDate.setDate(currentDate.getDate());
-    this.datePipe.transform(currentDate, 'yyyy-MM-dd');
+    return this.datePipe.transform(currentDate, 'yyyy-MM-dd');
+
+  }
+
+  public setDateBrazilianFormat(date: string): any {
+
     const items: string[] = date.split('-');
     let newDate: Date = new Date();
     newDate.setFullYear(
