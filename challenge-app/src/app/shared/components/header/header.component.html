@@ -4,7 +4,13 @@
 
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <h1 class="nav-link"  routerLinkActive="active" [routerLink]="getPaymentUrl()"><strong>Dashboard</strong></h1>
+        <h1
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="getPaymentUrl()"
+        >
+          <strong>Dashboard</strong>
+        </h1>
       </li>
     </ul>
     <ng-container [ngTemplateOutlet]="userActionTemplate"></ng-container>
@@ -44,18 +50,33 @@
       type="button"
       class="btn btn-sm"
       id="userDropdown"
+      alt="Logout Dropdown"
+      title="Logout Dropdown"
       ngbDropdownToggle
     >
+      <!-- <div class="d-flex justify-content-between">
+        <span> Hello, </span>
+      </div> -->
       <div class="d-flex justify-content-between">
-        <span> Hi, {{ username.toUpperCase() }}</span>
-        </div>
-        <div class="d-flex justify-content-between">
-        <span> <i class="fa-solid">{{ username[0] }}</i> </span>
+        <span>
+          <i class="fa-solid">{{ username[0] }}</i>
+        </span>
       </div>
     </button>
 
     <div ngbDropdownMenu aria-labelledby="userDropdown">
-      <button ngbDropdownItem id="logoutButton" (click)="logoutSystem()">Logout</button>
+      <div ngbDropdownItem class="hello">
+        <span> Hello, {{ username.toUpperCase() }} </span>
+      </div>
+      <button
+        ngbDropdownItem
+        id="logoutButton"
+        alt="Logout"
+        title="Logout"
+        (click)="logoutSystem()"
+      >
+        Logout
+      </button>
     </div>
   </div>
 </ng-template>

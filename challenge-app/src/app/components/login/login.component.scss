@@ -52,12 +52,17 @@ body {
   border-left: 5px solid #42A948; /* green */
 }
 .ng-invalid[required]  {
-  border-left: 5px solid #a94442; /* red */
+  border-left: 5px solid #00232E;; /* red */
 }
 
 .btn-primary{
+  border-color: white;
   border-radius: 12px;
   background-color: rgb(35, 134, 98);
+}
+.btn-primary:hover{
+  border-color: rgb(35, 134, 98);
+  background-color: rgba(35, 134, 98, 0.534);
 }
 
 strong{

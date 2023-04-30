@@ -16,13 +16,13 @@
     <div class="col-lg-3 mb-3">
       <div class="input-group w-100">
         <input type="text" class="form-control" id="search" [(ngModel)]="item"  placeholder="search for?"/>
-        <button type="button" class="btn" (click)="getPayment()"><span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span></button>
-        <button type="button" class="btn" (click)="loadAll()"><span class="input-group-text"><i class="fa-light fa-arrow-rotate-right"></i></span></button>
+        <button type="button" class="btn search" alt="Search List" title="Search List" (click)="getPayment()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button type="button" class="btn refresh" alt="Refresh List" title="Refresh List" (click)="loadAll()"><i class="fa-solid fa-arrow-rotate-right"></i></button>
 
       </div>
     </div>
     <div class="col-lg-9 mb-3 text-end">
-      <button type="button" class="btn btn-sm" id="newPayment" (click)="goToNewItem()">
+      <button type="button" class="btn btn-sm newpayment" alt="New Payment" title="New Payment" id="newPayment" (click)="goToNewItem()">
         New Payment
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -69,8 +69,8 @@
         <i class="fa-solid fa-ellipsis-vertical"></i>
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem id="editItem" (click)="goToEditItem(item)">EDITAR</button>
-        <button ngbDropdownItem id="deleteItem" (click)="gotToRemoveItem(item)">DELETAR</button>
+        <button ngbDropdownItem id="editItem" alt="Edit Item" title="Edit Item"(click)="goToEditItem(item)">EDIT</button>
+        <button ngbDropdownItem id="deleteItem" alt="Delete Item" title="Delete Item"(click)="gotToRemoveItem(item)">DELETE</button>
       </div>
     </div>
   </div>

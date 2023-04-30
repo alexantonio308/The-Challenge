@@ -140,11 +140,7 @@ export class PaymentListComponent implements OnInit {
   }
 
   public loadAll(): void {
-    this.getDefaultParam();
-    this.paymentList.list(
-    this.getUrl(),
-    this.getParams()
-    ).subscribe({
+    this.paymentList.list(this.getUrl(),this.getParams()).subscribe({
       next: (result: any) => this.onLoadSuccess(result),
       error: (error: any) => this.onLoadError(error),
     });
