@@ -1,0 +1,104 @@
+<div class="core-modal">
+  <div class="modal-header">
+    <h4 class="modal-title">Payment</h4>
+  </div>
+  <ng-container [ngTemplateOutlet]="modalBodyHeadTemplate"></ng-container>
+  <ng-container [ngTemplateOutlet]="modalBodyTemplate" [ngTemplateOutletContext]="{ form: formGroup }"></ng-container>
+  <ng-container [ngTemplateOutlet]="modalFooterTemplate"></ng-container>
+</div>
+
+<ng-template #modalBodyHeadTemplate>
+  <div class="modal-body modal-body-head">
+    <p *ngIf="!item?.id">Fill in the new Payment details</p>
+    <p *ngIf="item?.id">Edit Payment details</p>
+  </div>
+</ng-template>
+
+<ng-template #modalBodyTemplate let-form="form">
+  <div class="modal-body">
+    <div class="app-category-edit">
+      <div class="core-base-edit">
+        <div class="core-body">
+          <form [formGroup]="formGroup" *ngIf="formGroup">
+
+            <div class="row">
+
+              <div class="col-lg-4 mb-3">
+                <label class="d-block font-weight-semibold mb-1" [for]="PaymentFormConst.FIRST_NAME">First Name</label>
+                <input type="text" class="form-control" [id]="PaymentFormConst.FIRST_NAME"
+                       [formControlName]="PaymentFormConst.FIRST_NAME"
+                       autocomplete="off"/>
+              </div>
+
+              <div class="col-lg-4 mb-3">
+                <label class="d-block font-weight-semibold mb-1" [for]="PaymentFormConst.LAST_NAME">Last Name</label>
+                <input type="text" class="form-control" [id]="PaymentFormConst.LAST_NAME"
+                       [formControlName]="PaymentFormConst.LAST_NAME"
+                       autocomplete="off"/>
+              </div>
+
+              <div class="col-lg-4 mb-3">
+                <label class="d-block font-weight-semibold mb-1" [for]="PaymentFormConst.USERNAME">Username</label>
+                <input type="text" class="form-control" [id]="PaymentFormConst.USERNAME"
+                       [formControlName]="PaymentFormConst.USERNAME"
+                       autocomplete="off" readonly/>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4 mb-3">
+                <label class="d-block font-weight-semibold mb-1" [for]="PaymentFormConst.DATE">Date</label>
+                <input type="date" class="form-control" [id]="PaymentFormConst.DATE"
+                       [formControlName]="PaymentFormConst.DATE"
+                       autocomplete="off"/>
+              </div>
+              <div class="col-lg-8 mb-3">
+                <label class="d-block font-weight-semibold mb-1" [for]="PaymentFormConst.TITLE">Title</label>
+                <input type="text" class="form-control" [id]="PaymentFormConst.TITLE"
+                       [formControlName]="PaymentFormConst.TITLE"
+                       autocomplete="off"/>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-12 mb-3">
+                    <label class="d-block font-weight-semibold mb-1" [for]="PaymentFormConst.VALUE">Value</label>
+                    <input type="text" class="form-control" [id]="PaymentFormConst.VALUE"
+                           [formControlName]="PaymentFormConst.VALUE"
+                           autocomplete="off" prefix="$" mask="separator.3" />
+                  </div>
+
+                  <div class="col-lg-12 mb-3">
+                    <label class="d-block font-weight-semibold mb-1" [for]="PaymentFormConst.VALUE">Is Payed?</label>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" [id]="PaymentFormConst.IS_PAYED"
+                             [checked]="getSpecificForm(PaymentFormConst.IS_PAYED).value"
+                             [formControlName]="PaymentFormConst.IS_PAYED">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #modalFooterTemplate>
+  <div class="modal-footer">
+    <button type="button" id="closeModal" class="btn close-modal" (click)="activeModal.close('Close click')">Cancel</button>
+    <button type="button" id="submitModal" class="btn confirm-modal" [disabled]="!formGroup.valid" (click)="save()">Confirm</button>
+  </div>
+</ng-template>

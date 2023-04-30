@@ -1,0 +1,134 @@
+@import 'variables.scss';
+@import "./base-dropdow.scss";
+
+.base-list {
+
+  h1 {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .base-list-body {
+    width: 100%;
+    min-height: 25%;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: white;
+
+    .table-events {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .input-group .input-group-text {
+        background: $color-primary;
+        border-color: $color-second;
+
+        color: white;
+        font-size: 14px;
+        font-weight: bolder;
+      }
+
+      .btn {
+        background: $color-primary;
+        border-color: $color-second;
+        padding: 7px 12px;
+
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+
+        i {
+          margin-left: 0.5rem;
+          font-weight: bolder;
+        }
+      }
+    }
+
+    .table {
+      padding-left: 2rem;
+      padding-bottom: 2rem;
+
+      text-align: center;
+
+      thead,
+      tbody,
+      tfoot,
+      tr,
+      td,
+      th {
+        vertical-align: middle;
+        padding: 7px 12px;
+      }
+
+      .thead {
+        position: sticky !important;
+        top: 0 !important;
+        background: $color-third;
+        border-bottom: 1rem solid white;
+
+        color: white;
+        font-weight: 700;
+      }
+
+      .tbody {
+        overflow: auto !important;
+        max-height: 100% !important;
+
+        tr {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+
+          &:last-of-type {
+            border-bottom-color: white;
+          }
+
+          td {
+            .i-success {
+              color: $color-success;
+            }
+
+            .i-danger {
+              color: $color-danger;
+            }
+
+            .table-actions {
+              @include dropdown-adapter;
+            }
+          }
+        }
+      }
+    }
+
+    .table-footer {
+
+      .pagination {
+
+
+        .page-item a {
+          font-size: 14px;
+          border-radius: 0;
+          color: black;
+        }
+
+        .page-item:first-child .page-link {
+          color: $color-primary;
+          border-bottom-left-radius: 0.3rem;
+          border-top-left-radius: 0.3rem;
+        }
+
+        .page-item:last-child .page-link {
+          color: $color-primary;
+          border-bottom-right-radius: 0.3rem;
+          border-top-right-radius: 0.3rem;
+        }
+
+        .page-item.active .page-link {
+          color: white;
+          background: $color-primary;
+          border-color: $color-primary;
+        }
+      }
+    }
+  }
+}

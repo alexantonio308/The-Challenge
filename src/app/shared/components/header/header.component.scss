@@ -1,0 +1,75 @@
+@import "src/app/core/scss/variables.scss";
+@import "src/app/core/scss/base-dropdow.scss";
+
+.navbar-adapter {
+  height: 60px;
+  border-bottom: 1px solid rgb(232, 232, 232);
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  background-color: white;
+
+  .navbar-expand-lg {
+    height: 100%;
+
+    .nav {
+      width: calc(100% - 320px);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        font-size: 16px;
+        cursor: pointer;
+        color: #00232E;
+      }
+    }
+
+    .btn {
+      height: 2.5rem;
+      outline: none;
+
+      font-weight: 600;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        background: rgb(35, 134, 98);
+        border-color: rgb(35, 134, 98);
+
+        font-size: 14px;
+        color: white;
+      }
+
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5rem;
+
+        font-size: 16px;
+        cursor: pointer;
+        color: rgb(51, 51, 51);
+      }
+
+      @include dropdown-adapter;
+    }
+  }
+}
+
+.hello:active,
+.hello,
+.hello:hover {
+  text-decoration: none;
+  background-color: white;
+}

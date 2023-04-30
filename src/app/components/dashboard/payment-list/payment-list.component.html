@@ -1,0 +1,87 @@
+<section class="base-list">
+  <header>
+    <h1 class="mb-3">Payments</h1>
+  </header>
+
+  <div class="base-list-body">
+    <ng-container [ngTemplateOutlet]="tableEventsTemplat"></ng-container>
+    <ng-template [ngTemplateOutlet]="tableTamplat" [ngTemplateOutletContext]="{items: items}"></ng-template>
+    <ng-template [ngTemplateOutlet]="tableFooterTemplat"></ng-template>
+  </div>
+
+</section>
+
+<ng-template #tableEventsTemplat>
+  <div class="row table-events">
+    <div class="col-lg-3 mb-3">
+      <div class="input-group w-100">
+        <input type="text" class="form-control" id="search" [(ngModel)]="item"  placeholder="search for?"/>
+        <button type="button" class="btn search" alt="Search List" title="Search List" (click)="getPayment()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button type="button" class="btn refresh" alt="Refresh List" title="Refresh List" (click)="loadAll()"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+
+      </div>
+    </div>
+    <div class="col-lg-9 mb-3 text-end">
+      <button type="button" class="btn btn-sm newpayment" alt="New Payment" title="New Payment" id="newPayment" (click)="goToNewItem()">
+        New Payment
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tableTamplat let-items="items">
+  <table class="table table-striped">
+    <thead class="thead">
+    <tr>
+      <th colspan="2">Name
+      </th>
+      <th colspan="1">Title</th>
+      <th colspan="1">Date</th>
+      <th colspan="1">Value</th>
+      <th colspan="1">Is Payed</th>
+      <th colspan="1">Actions</th>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+    <tr *ngFor="let item of items">
+      <td colspan="2">{{item?.firstName || '-'}} {{item?.lastName || '-'}}</td>
+      <td colspan="1">{{item?.title || '-' }}</td>
+      <td colspan="1">{{treatingDate(item.date) | date: 'dd/MM/yyyy'}}</td>
+      <td colspan="1">{{ item?.value || 0 | currency:'R$'}}</td>
+      <td colspan="1">
+        <i class="fa-solid fa-circle"
+           [class.i-success]="item?.isPayed || false"
+           [class.i-danger]="!(item?.isPayed || false)"></i>
+      </td>
+      <td>
+        <ng-container [ngTemplateOutlet]="tableActionsTemplate" [ngTemplateOutletContext]="{item: item}"></ng-container>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #tableActionsTemplate let-item="item">
+  <div class="table-actions">
+    <div ngbDropdown class="d-inline-block">
+      <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem id="editItem" alt="Edit Item" title="Edit Item"(click)="goToEditItem(item)">EDIT</button>
+        <button ngbDropdownItem id="deleteItem" alt="Delete Item" title="Delete Item"(click)="gotToRemoveItem(item)">DELETE</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tableFooterTemplat>
+  <div class="table-footer w-100">
+    <ngb-pagination
+      [maxSize]="5"
+      [rotate]="true"
+      [(page)]="params.page" (pageChange)="pageChange($event)"
+      [collectionSize]="allPages * 10"></ngb-pagination>
+  </div>
+</ng-template>

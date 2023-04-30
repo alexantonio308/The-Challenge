@@ -1,0 +1,45 @@
+@import "./variables.scss";
+
+@mixin dropdown-adapter {
+  .dropdown {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      color: black;
+    }
+
+    button:hover {
+      background: transparent;
+      color: $color-primary;
+    }
+  }
+
+  .dropdown-menu {
+    background: #ffffff;
+    border: 1px solid $color-second;
+    border-radius: 2px;
+
+    .dropdown-item {
+      padding: 1rem;
+      font-size: 12px;
+    }
+
+    .dropdown-item:hover {
+      background: #ecedfb;
+    }
+  }
+
+}
