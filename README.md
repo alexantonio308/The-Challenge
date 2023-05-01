@@ -116,3 +116,23 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Modules and your dependencies
+
+![Captura de tela 2023-04-30 211951](https://user-images.githubusercontent.com/17026031/235396043-187d4a5d-ec03-472d-93ac-1520e608ac01.png)
+
+## Screens
+- Login
+
+![image](https://user-images.githubusercontent.com/17026031/235395828-a96789a3-9b00-4b27-ae19-b72f4222f58a.png)
+
+- Dashboard
+
+![image](https://user-images.githubusercontent.com/17026031/235395904-81f1778c-f7a2-4f23-88ef-eb853edecd2f.png)
+
+- New Payment
+
+![image](https://user-images.githubusercontent.com/17026031/235395944-f540fddd-7583-47ca-a742-255b6adee967.png)
+
+- Edit Payment
+
+![image](https://user-images.githubusercontent.com/17026031/235395976-9842cdf5-4263-4a56-9872-344d110d3239.png)
